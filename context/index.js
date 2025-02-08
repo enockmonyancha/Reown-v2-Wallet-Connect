@@ -32,7 +32,19 @@ const modal = createAppKit({
   metadata: metadata,
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
-  }
+    connectMethodsOrder: ['email', 'wallet'],
+  },
+  // customWallets: [
+  //   {
+  //     id: 'phantom',
+  //     name: 'Phantom',
+  //     description: 'Connect to Phantom Wallet',
+  //     icon: 'https://cdn.prod.website-files.com/6410de4b1ee56e7333393b23/66d87fb4733b331acc81216e_Phantom-Icon_Transparent_Purple.png', // Replace with the actual icon URL
+  //     url: 'https://phantom.com/', // Replace with the actual URL
+  //   },
+  //   // Add other wallets as needed
+  // ],
+  
 })
 
 function ContextProvider({ children, cookies }) {

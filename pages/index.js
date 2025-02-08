@@ -1,12 +1,14 @@
 'use client'
 
-import { useDisconnect, useAppKit, useAppKitNetwork } from '@reown/appkit/react'
+import { useDisconnect, useAppKit, useAppKitNetwork, useWalletInfo } from '@reown/appkit/react'
 import { networks } from '@/config'
+import WalletBalance from '@/components/WalletBalance'
 
 export default function Home() {
   const { disconnect } = useDisconnect()
   const { open } = useAppKit()
   const { switchNetwork } = useAppKitNetwork()
+  const { walletInfo } = useWalletInfo();
 
   const handleDisconnect = async () => {
     try {
@@ -79,12 +81,14 @@ export default function Home() {
           <h3 className="text-3xl font-extrabold text-white sm:text-4xl md:text-5xl mb-3">
             Connecting Web3
           </h3>
+          {/* display wallet balance here */}
+          <WalletBalance />
           <p className="text-lg text-center max-w-lg mt-3 mb-3">
             The communications protocol for web3, WalletConnect brings the ecosystem together by enabling wallets and apps to securely connect and interact.
           </p>
           <button 
             onClick={() => open()} 
-            className="mt-4 inline-block bg-white text-primary px-8 py-3 border border-transparent rounded-md text-base font-medium hover:bg-gray-100 transition"
+            className="mt-2 inline-block bg-white text-primary px-8 py-3 border border-transparent rounded-md text-base font-medium hover:bg-gray-100 transition"
           >
             Connect Wallet
           </button>
