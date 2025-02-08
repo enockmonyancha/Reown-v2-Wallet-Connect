@@ -83,6 +83,7 @@ export default function Home() {
           </h3>
           {/* display wallet balance here */}
           <WalletBalance />
+          
           <p className="text-lg text-center max-w-lg mt-3 mb-3">
             The communications protocol for web3, WalletConnect brings the ecosystem together by enabling wallets and apps to securely connect and interact.
           </p>

