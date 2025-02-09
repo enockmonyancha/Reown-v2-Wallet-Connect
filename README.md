@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Contact me on Whatsapp for custom additional network ## +254799117020
+
 First, run the development server:
 
 ```bash
