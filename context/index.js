@@ -1,50 +1,33 @@
-// context/index.js
 'use client'
 
-import { wagmiAdapter, projectId } from '@/config'
+import { wagmiAdapter, solanaWeb3JsAdapter, projectId, networks } from '@/config'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react'
-import { mainnet, arbitrum, avalanche, base, optimism, polygon } from '@reown/appkit/networks'
 import React from 'react'
 import { cookieToInitialState, WagmiProvider } from 'wagmi'
 
 // Set up queryClient
 const queryClient = new QueryClient()
 
-if (!projectId) {
-  throw new Error('Project ID is not defined')
-}
-
 // Set up metadata
 const metadata = {
-  name: 'Wallet V2',
-  description: 'AppKit Example',
-  url: 'https://reown.com/appkit', // origin must match your domain & subdomain
-  icons: ['https://assets.reown.com/reown-profile-pic.png']
+  name: 'Wallet-v2',
+  description: 'next-reown-appkit',
+  url: 'https://github.com/0xonerb/next-reown-appkit-ssr', // origin must match your domain & subdomain
+  icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
 // Create the modal
-const modal = createAppKit({
-  adapters: [wagmiAdapter],
+export const modal = createAppKit({
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter],
   projectId,
-  networks: [mainnet, arbitrum, avalanche, base, optimism, polygon],
-  defaultNetwork: mainnet,
-  metadata: metadata,
+  networks,
+  metadata,
+  themeMode: 'dark',
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
     connectMethodsOrder: ['email', 'wallet'],
   },
-  // customWallets: [
-  //   {
-  //     id: 'phantom',
-  //     name: 'Phantom',
-  //     description: 'Connect to Phantom Wallet',
-  //     icon: 'https://cdn.prod.website-files.com/6410de4b1ee56e7333393b23/66d87fb4733b331acc81216e_Phantom-Icon_Transparent_Purple.png', // Replace with the actual icon URL
-  //     url: 'https://phantom.com/', // Replace with the actual URL
-  //   },
-  //   // Add other wallets as needed
-  // ],
-  
 })
 
 function ContextProvider({ children, cookies }) {

