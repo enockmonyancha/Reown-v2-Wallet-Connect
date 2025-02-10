@@ -18,7 +18,8 @@ function WalletBalance() {
   console.log("Wallet Info in WalletBalance.js", isConnected, address, caipAddress);
 
   if (!address) {
-    return <p>Connect your wallet to see token balance.</p>;
+    // return <p>Connect your wallet to see token balance.</p>;
+    return;
   }
 
   const { name: walletName } = walletInfo ?? caipAddress;
