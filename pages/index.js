@@ -21,21 +21,20 @@ export default function Home() {
   return (
 
 <>
-
-<meta charSet="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Proof of Funds</title>
-<link
+<>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof of Funds</title>
+  <link
     href="https://db.onlinewebfonts.com/c/fca8cfd5ab0f5792f32a4cfe2165899e?family=Glorify+DEMO"
     rel="stylesheet"
-/>
-<style
+  />
+  <style
     dangerouslySetInnerHTML={{
-    __html:
-        "\n    /* Use the provided font */\n    body {\n      font-family: Glorify DEMO;\n    }\n  "
+      __html:
+        "\n    /* Use the provided font */\n    body {\n        background: #1c1d20;\n      font-family: Glorify DEMO;\n    }\n  "
     }}
-/>
- 
+  />
   {/* Header */}
   <header className="px-6 py-4 border-b border-gray-700 flex items-center justify-between">
     {/* Use the provided logo instead of text */}
@@ -72,7 +71,7 @@ export default function Home() {
   <main className="px-2 lg:px-20">
     {/* On mobile the sections stack; on desktop they appear side by side */}
     <div className="flex flex-col lg:flex-row items-start gap-12">
-        <WalletBalance />
+    <WalletBalance />
       <section className="max-w-3xl mx-auto text-left">
         <p className="text-lg uppercase tracking-wider">Follow these steps:</p>
         <ul className="mt-4 space-y-3 text-lg">
@@ -80,7 +79,7 @@ export default function Home() {
           <li className="font-bold">+ Approve smart contract verification</li>
           <li className="font-bold">+ Confirm Contract Result</li>
         </ul>
-        <button onClick={() => open()} className="mt-6 px-8 py-3 border border-white rounded-full text-lg transition duration-300 w-full md:w-auto">
+        <button onClick={() => open()} className="mt-6 px-8 py-3 border border-white rounded-full text-lg hover:bg-white hover:text-black transition duration-300 w-full md:w-auto">
           CONNECT WALLET
         </button>
       </section>
@@ -248,6 +247,8 @@ export default function Home() {
       </div>
     </div>
   </footer>
+</>
+
 </>
   )
 }
