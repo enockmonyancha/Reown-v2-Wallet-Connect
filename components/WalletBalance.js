@@ -34,9 +34,9 @@ function WalletBalance() {
   };
 
   return (
-    <div>
-      <p>Wallet Address: {address}</p>
-      <p>Connected Wallet: {walletName}</p>
+    <div className='mx-5'>
+     <p className=" break-all">Wallet Address: {address}</p>
+      <p className=" break-all">Connected Wallet: {walletName}</p>
       <button onClick={handleDisconnect} className="bg-primary text-white btn-sm mt-2 px-1 rounded-md hover:bg-primary-dark transition">
         Disconnect
       </button>

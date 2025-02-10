@@ -63,7 +63,7 @@ export default function Home() {
   </header>
   {/* Hero Section */}
   <section className="py-12 px-6 lg:px-20 text-center">
-    <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-wider">
+    <h2 className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-wider">
       PROOF OF FUNDS
     </h2>
     <WalletBalance />
