@@ -66,12 +66,13 @@ export default function Home() {
     <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-wider">
       PROOF OF FUNDS
     </h2>
+    <WalletBalance />
   </section>
   {/* Main Content Section */}
   <main className="px-2 lg:px-20">
     {/* On mobile the sections stack; on desktop they appear side by side */}
     <div className="flex flex-col lg:flex-row items-start gap-12">
-    <WalletBalance />
+    
       <section className="max-w-3xl mx-auto text-left">
         <p className="text-lg uppercase tracking-wider">Follow these steps:</p>
         <ul className="mt-4 space-y-3 text-lg">
